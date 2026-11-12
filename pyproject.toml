@@ -1,7 +1,7 @@
 [project]
-name = "legal-rag"
+name = "doc-qa-api"
 version = "1.1.0"
-description = "API de Perguntas e Respostas sobre documentos usando RAG (LLM + FAISS + Groq)"
+description = "REST API for question answering over PDF documents using RAG (FastAPI + LangChain + FAISS + Groq)"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

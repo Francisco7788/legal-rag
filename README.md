@@ -1,8 +1,10 @@
-# Legal RAG
+# Doc QA API
 
-API de Perguntas e Respostas sobre documentos (PDF) usando **RAG (Retrieval-Augmented Generation)**: ingere um PDF, indexa em FAISS e responde perguntas usando LLM via Groq Cloud.
+REST API for question answering over PDF documents using **RAG (Retrieval-Augmented Generation)**: ingests a PDF, indexes it with FAISS, and answers natural-language questions via an LLM on Groq Cloud.
 
-Projeto desenvolvido com foco em aplicação prática de **Engenharia de Software** (estrutura modular, testes, CI/CD) e **Inteligência Artificial** (LangChain + embeddings + LLM).
+A practical project focused on **Software Engineering** (modular architecture, automated tests, CI/CD) and **Artificial Intelligence** (LangChain, embeddings, LLMs).
+
+> API REST de perguntas e respostas sobre documentos PDF via RAG: ingere um PDF, indexa em FAISS e responde perguntas em linguagem natural usando LLM na Groq Cloud. Projeto com foco em Engenharia de Software (arquitetura modular, testes automatizados, CI/CD) e IA (LangChain, embeddings, LLMs).
 
 ## Stack
 
@@ -21,29 +23,29 @@ Projeto desenvolvido com foco em aplicação prática de **Engenharia de Softwar
 ## Estrutura
 
 ```
-rag-api/
+doc-qa-api/
 ├── app/
-│   ├── main.py              # Ponto de entrada FastAPI + lifespan
+│   ├── main.py              # FastAPI entry point + lifespan
 │   ├── api/
-│   │   └── routes.py        # Rotas: /, /health, /query
+│   │   └── routes.py        # Routes: /, /health, /query
 │   ├── core/
 │   │   ├── config.py        # Settings via .env (pydantic-settings)
-│   │   └── logging.py       # Logger centralizado
+│   │   └── logging.py       # Centralized logger
 │   ├── schemas/
-│   │   └── query.py         # Schemas Pydantic (req/resp)
+│   │   └── query.py         # Pydantic schemas (req/resp)
 │   └── services/
-│       └── rag_service.py   # Pipeline RAG (ingestão, retriever, chain)
+│       └── rag_service.py   # RAG pipeline (ingest, retriever, chain)
 ├── tests/
 │   ├── conftest.py          # Fixtures: mock_rag, client
-│   ├── test_schemas.py      # Testes de validação
-│   ├── test_routes.py       # Testes de endpoints (TestClient)
-│   └── test_services.py    # Testes unitários com mocks
+│   ├── test_schemas.py      # Validation tests
+│   ├── test_routes.py       # Endpoint tests (TestClient)
+│   └── test_services.py     # Unit tests with mocks
 ├── .github/workflows/
-│   └── ci.yml               # CI: lint + testes em 3 versões do Python
-├── .env.example             # Template de configuração
+│   └── ci.yml               # CI: lint + tests across 3 Python versions
+├── .env.example             # Configuration template
 ├── .gitignore
-├── Makefile                 # Comandos comuns
-├── pyproject.toml           # Configuração moderna do projeto
+├── Makefile                 # Common commands
+├── pyproject.toml           # Modern project config (PEP 621)
 └── README.md
 ```
 
@@ -52,15 +54,15 @@ rag-api/
 ### 1. Clonar e preparar ambiente
 
 ```bash
-git clone https://github.com/Francisco7788/rag-api.git
-cd rag-api
+git clone https://github.com/Francisco7788/doc-qa-api.git
+cd doc-qa-api
 
-# Cria e ativa venv
+# Create and activate venv
 python -m venv venv
 source venv/bin/activate    # Linux/Mac
 # venv\Scripts\activate     # Windows
 
-# Instala dependências (inclui dev: pytest, ruff)
+# Install dependencies (incl. dev: pytest, ruff)
 make dev
 ```
 
