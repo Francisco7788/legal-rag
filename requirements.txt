@@ -1,0 +1,3 @@
+# Dependências mantidas para compatibilidade com quem prefere requirements.txt
+# Para instalação completa (incluindo dev): pip install -e ".[dev]"
+-r requirements-base.txt
